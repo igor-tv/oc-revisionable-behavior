@@ -183,7 +183,8 @@ abstract class RevisionableBehavior extends ExtensionBase
     }
 
     /**
-     * Get revision history relation name name.
+     * Get revision history relation name.
+     * TODO: get revision history relation name via dynamic method
      * @return string
      */
     public function getRevisionHistoryName()
