@@ -1,6 +1,4 @@
-<?php namespace Iweb\Classes;
-
-use Iweb\Behaviors\RevisionableBehavior;
+<?php namespace Iweb\Behaviors;
 
 /**
  * Revisionable model extension

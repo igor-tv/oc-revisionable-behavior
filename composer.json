@@ -14,10 +14,10 @@
     "version": "1.0.0",
     "autoload": {
         "classmap": [
-            "src/iweb/classes"
+            "src/iweb/behaviors"
         ],
         "psr-0": {
-            "iweb\\classes\\": "src/"
+            "iweb\\behaviors\\": "src/"
         }
     }
 }
