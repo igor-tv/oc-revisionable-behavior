@@ -1,0 +1,23 @@
+{
+    "name": "igor-tv/oc-revisionable-behavior",
+    "description": "Revisionable behavior for extending OCMS models",
+    "require": {
+        "php": ">=7.2"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Igor Tverdokhleb",
+            "email": "igor-tv@mail.ru"
+        }
+    ],
+    "version": "1.0.0",
+    "autoload": {
+        "classmap": [
+            "src/iweb/classes"
+        ],
+        "psr-0": {
+            "iweb\\classes\\": "src/"
+        }
+    }
+}
