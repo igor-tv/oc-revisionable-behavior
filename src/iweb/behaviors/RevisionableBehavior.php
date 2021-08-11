@@ -12,9 +12,10 @@ use October\Rain\Extension\ExtensionBase;
  */
 abstract class RevisionableBehavior extends ExtensionBase
 {
-    const REVISION_HISTORY_NAME  = 'revision_history';
-    const DEFAULT_REVISION_LIMIT = 500;
-    const CLEANUP_REVISION_BATCH = 64;
+    const REVISION_HISTORY_NAME_PROPERTY = 'revisionHistoryRelationName';
+    const REVISION_HISTORY_NAME          = 'revision_history';
+    const DEFAULT_REVISION_LIMIT         = 500;
+    const CLEANUP_REVISION_BATCH         = 64;
 
     /**
      * @var EloquentModel Reference to the extended model.
@@ -183,11 +184,18 @@ abstract class RevisionableBehavior extends ExtensionBase
     }
 
     /**
-     * Get revision history relation name name.
+     * Get revision history relation name.
      * @return string
      */
     public function getRevisionHistoryName()
     {
-        return defined($this->model . '::REVISION_HISTORY') ? $this->model::REVISION_HISTORY : self::REVISION_HISTORY_NAME;
+        $revisionHistoryRelation = array_get($this->model->getDynamicProperties(), self::REVISION_HISTORY_NAME_PROPERTY)
+            ?: self::REVISION_HISTORY_NAME;
+
+        if (defined($this->model . '::REVISION_HISTORY')) {
+            $revisionHistoryRelation = $this->model::REVISION_HISTORY;
+        }
+
+        return $revisionHistoryRelation;
     }
 }
