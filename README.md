@@ -1,6 +1,12 @@
 # oc-revisionable-behavior
 
-**Revisionable behavior** for extending any OctoberCMS models with history revisions functionality. This can be used instead Revisionable trait when you need to extend a third party model.
+**Revisionable behavior** for extending any OctoberCMS models. This can be used instead Revisionable trait when you need to extend a third party model.
+
+**Installation**
+
+Run the command below in the root folder of your project:
+
+`composer require igor-tv/oc-revisionable-behavior`
 
 **Use Example**
 ```
