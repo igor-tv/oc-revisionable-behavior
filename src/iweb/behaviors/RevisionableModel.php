@@ -4,7 +4,7 @@
  * Revisionable model extension
  *
  * Class RevisionableModel
- * @package Iweb\Classes
+ * @package Iweb\Behaviors
  */
 class RevisionableModel extends RevisionableBehavior
 {
