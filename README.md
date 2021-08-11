@@ -1,25 +1,36 @@
 # oc-revisionable-behavior
-https://octobercms.com/docs/database/model#extending-models
 
+**Revisionable behavior** for extending any OctoberCMS models with history revisions functionality. This can be used instead Revisionable trait when you need to extend a third party model.
+
+**Use Example**
 ```
-User::extend(function ($model) {
-	$model->implement[] = 'Iweb.Behaviors.RevisionableModel';
+\RainLab\User\Models\User::extend(function ($model) {
+    $model->implement[] = 'Iweb.Behaviors.RevisionableModel';
 
-	$revisionable = [
+    $revisionableFields = [
         'name',
         'email'
     ];
-
-    $model->addDynamicProperty('revisionable', $revisionable);
+    
+    //required
+    $model->addDynamicProperty('revisionable', $revisionableFields);
+    
+    //optional, default: 500
     $model->addDynamicProperty('revisionableLimit', 200);
+    
+    //optional, if you need rename revisions model relation
+    $model->addDynamicProperty('revisionHistoryRelationName', 'your_history_relation_name');
+    
+    //optional, if you need assosiate changes with backend users
     $model->addDynamicMethod('getRevisionableUser', function () {
         if (!\BackendAuth::check()) {
-        	return null;
+            return null;
         }
-
+  
         return \BackendAuth::getUser()->id;
     });
-
 });
-
 ```
+For more details see Revisionable trait description https://octobercms.com/docs/database/traits#revisionable
+
+Extending Models in official documentation https://octobercms.com/docs/database/model#extending-models
