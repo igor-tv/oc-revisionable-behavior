@@ -1,4 +1,4 @@
-# oc-revisionable-behavior
+# Revisionable behavior for OctoberCMS
 
 **Revisionable behavior** for extending any OctoberCMS models. This can be used instead Revisionable trait when you need to extend a third party model.
 
